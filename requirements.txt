@@ -1,0 +1,7 @@
+numpy
+scipy
+opencv
+matplotlib
+jupyter
+tensorflow=1.15
+tensorflow-gpu=1.15
