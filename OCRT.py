@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import cv2
 from scipy.fftpack import fft, fftshift, ifft, ifftshift
 import scipy.io
