@@ -34,8 +34,12 @@ def main():
     else:
         a.tube_diameter = 1.108516
     
+    print("checkpoint 1")
+
     a.load_data_and_resolve_constants(data_directory=data_directory)
     a.build_graph()
+
+    print("checkpoint 2")
 
     # run through optimization loop:
     losses = list()
@@ -74,13 +78,19 @@ def main():
             plt.title('loss terms')
             plt.show()
 
+    print("checkpoint 3")
+
     a.save_graph()  # this graph must be saved in order to run filter optimization below
+
+    print("checkpoint 4")
 
     #-------------Filter Optimization after Registration----------------#
     # remove previous tf graph and variables:
     a.sess.close()
     tf.reset_default_graph()
     del a
+
+    print("checkpoint 5")
 
     # instantiate new object, this time for filter optimization
     a = OCRT2D(sample_id=sample_id,save_directory=save_directory)
@@ -96,6 +106,8 @@ def main():
 
     a.load_data_and_resolve_constants(data_directory=data_directory)
     a.build_graph()
+
+    print("checkpoint 6")
 
     losses = list()
     feed_dict = a.get_feed_dict()
@@ -118,7 +130,7 @@ def main():
             plt.legend(a.loss_term_names.eval())
             plt.title('loss terms')
             plt.show()
-            
+
     # a.save_graph()  # this graph doesn't need to be saved
 
 
